@@ -66,10 +66,10 @@ const UnderConstruction = () => {
             {/* "Coming Soon" Message */}
             <div className="absolute inset-0 flex items-center justify-center text-white z-10">
                 <div className="text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-shadow-lg">
+                    <h1 className="text-4xl md:text-6xl font-Light text-shadow-lg">
                         We're Launching Soon!
                     </h1>
-                    <p className="mt-4 text-lg">Enjoy a 3D experience while you wait...</p>
+                    <p className="mt-4 text-lg font-light">Enjoy a 3D experience while you wait...</p>
                 </div>
             </div>
         </div>
