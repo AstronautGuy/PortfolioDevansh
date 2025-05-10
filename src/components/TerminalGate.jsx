@@ -102,7 +102,7 @@ export default function TerminalGate({ onUnlock }) {
                 {/* Terminal content */}
                 <div className="flex-grow bg-black text-[#00ff00] font-mono px-6 py-4 overflow-y-auto">
                     {phase === "intro" ? (
-                        <TypingText sequence={introText} speed={1} onComplete={onIntroComplete} />
+                        <TypingText sequence={introText} speed={30} onComplete={onIntroComplete} />
                     ) : (
                         <>
                             <pre className="whitespace-pre-wrap mb-2">{savedText}</pre>
