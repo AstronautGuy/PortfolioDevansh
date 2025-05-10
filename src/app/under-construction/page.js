@@ -1,5 +1,5 @@
 // pages/under-construction.js
-'use client'
+/*'use client'
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
@@ -60,10 +60,8 @@ const UnderConstruction = () => {
 
     return (
         <div className="relative w-full h-screen">
-            {/* 3D Scene */}
             <div ref={mountRef} className="w-full h-full absolute top-0 left-0 z-0" />
 
-            {/* "Coming Soon" Message */}
             <div className="absolute inset-0 flex items-center justify-center text-white z-10">
                 <div className="text-center">
                     <h1 className="text-4xl md:text-6xl font-Light text-shadow-lg">
@@ -76,4 +74,4 @@ const UnderConstruction = () => {
     );
 };
 
-export default UnderConstruction;
+export default UnderConstruction;*/
