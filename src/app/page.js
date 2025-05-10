@@ -2,16 +2,25 @@
 
 import { useState, useRef, useEffect } from "react";
 import TerminalGate from "../components/TerminalGate";
+import GithubContributions from "../components/GithubContributions";
 
 export default function Home() {
     const sectionRefs = useRef([]);
     const isSnapping = useRef(false);
     const [unlocked, setUnlocked] = useState(false);
+    const [expandedYears, setExpandedYears] = useState({});
 
     const addSection = (el) => {
         if (el && !sectionRefs.current.includes(el)) {
             sectionRefs.current.push(el);
         }
+    };
+
+    const toggleYear = (year) => {
+        setExpandedYears((prev) => ({
+            ...prev,
+            [year]: !prev[year],
+        }));
     };
 
     useEffect(() => {
@@ -63,38 +72,89 @@ export default function Home() {
                 </section>
                 <section
                     ref={addSection}
-                    className="flex flex-col items-center justify-start bg-none text-white pt-20 px-6 overflow-y-auto"
+                    className={`flex flex-col items-center justify-start bg-none text-white pt-20 px-6 overflow-y-auto transition-opacity duration-700 ease-in-out ${
+                        unlocked ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
                 >
-                    <h2 className="text-3xl font-semibold mb-6">My Journey in Tech</h2>
+                    <div className="flex flex-col items-center mb-8" style={{ margin: "0 auto" }}>
+                        <h2 className="text-3xl font-semibold mb-2 text-center">Trajectory Through Code & Cosmos</h2>
+                        <span className="text-lg text-center text-gray-300 mb-4">
+                            A timeline of experiments, innovations, and digital adventures.
+                        </span>
+                    </div>
                     <p className="text-lg text-center max-w-3xl mb-8">
                         From “Hello, World!” in C to full-stack Next.js and AI-assisted home automation, my path has been fueled by curiosity and a relentless drive to solve real problems.
                     </p>
 
                     {/* Timeline */}
                     <div className="w-full max-w-3xl mb-8 space-y-4">
-                        <div className="flex items-start">
-                            <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4" />
-                            <div>
-                                <strong>2018</strong> — First “real” program in C, and fell in love with low-level hacking.
-                            </div>
+                        <div className="flex flex-col">
+                            <button
+                                onClick={() => toggleYear(2018)}
+                                className="flex items-start focus:outline-none"
+                                aria-expanded={!!expandedYears[2018]}
+                            >
+                                <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4 flex-shrink-0" />
+                                <div className="flex-1 text-left">
+                                    <strong>2018</strong> — First “real” program in C, and fell in love with low-level hacking.
+                                </div>
+                            </button>
+                            {expandedYears[2018] && (
+                                <p className="mt-2 ml-6 text-gray-300 text-sm">
+                                    Learned the fundamentals of programming and developed a strong foundation in understanding how computers work at a low level.
+                                </p>
+                            )}
                         </div>
-                        <div className="flex items-start">
-                            <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4" />
-                            <div>
-                                <strong>2020</strong> — Launched my first React/Next.js portfolio, picked up Tailwind CSS and glassmorphism.
-                            </div>
+                        <div className="flex flex-col">
+                            <button
+                                onClick={() => toggleYear(2020)}
+                                className="flex items-start focus:outline-none"
+                                aria-expanded={!!expandedYears[2020]}
+                            >
+                                <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4 flex-shrink-0" />
+                                <div className="flex-1 text-left">
+                                    <strong>2020</strong> — Launched my first React/Next.js portfolio, picked up Tailwind CSS and glassmorphism.
+                                </div>
+                            </button>
+                            {expandedYears[2020] && (
+                                <p className="mt-2 ml-6 text-gray-300 text-sm">
+                                    Gained experience with modern web development tools and design trends, improving UI/UX skills.
+                                </p>
+                            )}
                         </div>
-                        <div className="flex items-start">
-                            <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4" />
-                            <div>
-                                <strong>2022</strong> — Delved into cybersecurity & ethical hacking; built a Kali Linux lab and completed 30-day challenges.
-                            </div>
+                        <div className="flex flex-col">
+                            <button
+                                onClick={() => toggleYear(2022)}
+                                className="flex items-start focus:outline-none"
+                                aria-expanded={!!expandedYears[2022]}
+                            >
+                                <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4 flex-shrink-0" />
+                                <div className="flex-1 text-left">
+                                    <strong>2022</strong> — Delved into cybersecurity & ethical hacking; built a Kali Linux lab and completed 30-day challenges.
+                                </div>
+                            </button>
+                            {expandedYears[2022] && (
+                                <p className="mt-2 ml-6 text-gray-300 text-sm">
+                                    Developed a security-first mindset and hands-on skills in penetration testing and ethical hacking.
+                                </p>
+                            )}
                         </div>
-                        <div className="flex items-start">
-                            <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4" />
-                            <div>
-                                <strong>2024</strong> — Started AIshiyana.AI home-automation project, integrated ESP32 and AI routines.
-                            </div>
+                        <div className="flex flex-col">
+                            <button
+                                onClick={() => toggleYear(2024)}
+                                className="flex items-start focus:outline-none"
+                                aria-expanded={!!expandedYears[2024]}
+                            >
+                                <div className="w-2 h-2 bg-[#00ff00] rounded-full mt-2 mr-4 flex-shrink-0" />
+                                <div className="flex-1 text-left">
+                                    <strong>2024</strong> — Started AIshiyana.AI home-automation project, integrated ESP32 and AI routines.
+                                </div>
+                            </button>
+                            {expandedYears[2024] && (
+                                <p className="mt-2 ml-6 text-gray-300 text-sm">
+                                    Combined AI and IoT to build innovative home automation solutions, expanding expertise in embedded systems.
+                                </p>
+                            )}
                         </div>
                     </div>
 
@@ -136,6 +196,12 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
+                {/* Github Contributions */}
+
+                <section ref={addSection} className="flex flex-col items-center justify-center bg-none text-white pt-20">
+                    <GithubContributions />
+                </section>
+
                 {/* My Journey in Tech (Part 2) */}
                 <section
                     ref={addSection}

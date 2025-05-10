@@ -63,11 +63,11 @@ export default function TerminalGate({ onUnlock }) {
         };
     });
     const introText = [
-        { text: "Initializing digital cosmos...\n", repeat: false },
-        { text: "Establishing quantum links...\n", repeat: false },
-        { text: "Calibrating neural interfaces...\n", repeat: false },
         ...loadingSequence.map((line) => ({ text: line.text, repeat: false })),
-        { text: "\nWelcome, traveler.\n\nType 'start' to enter the void.\n", repeat: false }
+        { text: "\nInitializing cosmic nexus of infinite dimensions...", repeat: false },
+        { text: "\nSynchronizing quantum entanglement across star clusters...\n", repeat: false },
+        { text: "Calibrating interstellar neural interfaces for void traversal...\n", repeat: false },
+        { text: "\nWelcome, traveler of the astral plane.\n\nType 'launch' to transcend the void.\n", repeat: false }
     ];
 
     const onIntroComplete = (finalText) => {
@@ -79,7 +79,7 @@ export default function TerminalGate({ onUnlock }) {
     const handleKey = (e) => {
         if (phase !== "prompt") return;
         if (e.key === "Enter") {
-            if (input.trim().toLowerCase() === "start") {
+            if (input.trim().toLowerCase() === "launch") {
                 // fade out
                 setExiting(true);
                 setTimeout(onUnlock, 1000);
@@ -92,7 +92,7 @@ export default function TerminalGate({ onUnlock }) {
 
     return (
         <div className={`${exiting ? 'opacity-0' : 'opacity-100'} transition-opacity duration-1000 fixed inset-0 bg-black bg-opacity-80 backdrop-blur flex items-center justify-center p-4`}>
-            <div className="bg-gray-900 rounded-lg shadow-lg w-full max-w-[90vw] h-[90vh] flex flex-col">
+            <div className="bg-gray-900 rounded-lg shadow-lg w-full max-w-[90vw] h-[90vh] flex flex-col fade-in">
                 {/* Mac-like top bar */}
                 <div className="bg-gray-800 h-6 rounded-t-lg flex items-center px-2">
                     <span className="w-3 h-3 bg-red-500 rounded-full ml-1"></span>
@@ -100,9 +100,9 @@ export default function TerminalGate({ onUnlock }) {
                     <span className="w-3 h-3 bg-green-500 rounded-full ml-2"></span>
                 </div>
                 {/* Terminal content */}
-                <div className="flex-grow bg-black text-[#00ff00] font-mono px-6 py-4 !overflow-hidden">
+                <div className="flex-grow bg-black text-[#00ff00] font-mono px-6 py-4 overflow-y-auto">
                     {phase === "intro" ? (
-                        <TypingText sequence={introText} speed={30} onComplete={onIntroComplete} />
+                        <TypingText sequence={introText} speed={1} onComplete={onIntroComplete} />
                     ) : (
                         <>
                             <pre className="whitespace-pre-wrap mb-2">{savedText}</pre>
@@ -125,7 +125,7 @@ export default function TerminalGate({ onUnlock }) {
     );
 }
 
-// Prevent scrolling on html and body
+// Prevent scrolling on HTML and body
 if (typeof window !== "undefined") {
     const style = document.createElement('style');
     style.innerHTML = `
