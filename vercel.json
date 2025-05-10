@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/under-construction",
+      "destination": "/",
       "permanent": false
     }
   ]
