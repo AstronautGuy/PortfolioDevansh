@@ -7,7 +7,7 @@
 /* Light font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Light.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Light.otf') format('opentype');
   font-weight: 300; /* Light */
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 /* Regular font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Regular.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Regular.otf') format('opentype');
   font-weight: 400; /* Regular */
   font-style: normal;
 }
@@ -23,7 +23,7 @@
 /* Medium font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Medium.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Medium.otf') format('opentype');
   font-weight: 500; /* Medium */
   font-style: normal;
 }
@@ -31,7 +31,7 @@
 /* Semibold font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Semibold.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Semibold.otf') format('opentype');
   font-weight: 600; /* Semibold */
   font-style: normal;
 }
@@ -39,7 +39,7 @@
 /* Bold font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Bold.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Bold.otf') format('opentype');
   font-weight: 700; /* Bold */
   font-style: normal;
 }
@@ -47,7 +47,7 @@
 /* Black font */
 @font-face {
   font-family: 'Approach Mono';
-  src: url('/public/fonts/ApproachMono-Black.otf') format('opentype');
+  src: url('/fonts/ApproachMono-Black.otf') format('opentype');
   font-weight: 900; /* Black */
   font-style: normal;
 }
